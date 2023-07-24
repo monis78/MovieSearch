@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+  }
+  .back-button {
+    margin-right: 10px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: transparent;
+    border: none;
+  }
+  .search-button {
+    margin-left: auto;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import { Suspense, lazy } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { SearchContextProvider } from './api-hooks/useSearchContext';
 import './App.css';
+const Home = lazy(() => import('./pages/Home'));
+const Search = lazy(() => import('./pages/Search'));
+const ErrorScreen = lazy(() => import('./pages/ErrorScreen'));
 
 function App() {
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Suspense fallback={<div>Loading</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/search"
+              element={
+                <SearchContextProvider>
+                  <Search />
+                </SearchContextProvider>
+              }
+            />
+            <Route path="*" element={<ErrorScreen />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
     </div>
   );
 }

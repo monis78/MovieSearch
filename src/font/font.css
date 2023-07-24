@@ -1,0 +1,7 @@
+/* File: font.css */
+@font-face {
+    font-family: 'TitilliumWeb';
+    src: local('TitilliumWeb'),
+         url('./TitilliumWeb-Regular.ttf') format('truetype');
+}
+
